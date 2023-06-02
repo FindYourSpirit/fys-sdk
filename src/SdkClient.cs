@@ -1,42 +1,39 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
+﻿using FYS_SDK.src.Commands;
 
 namespace FYS_SDK.src
 {
-    public class SdkClient
+    public class SdkClient : IDisposable
     {
-        private readonly HttpClient _httpClient;
         private readonly SdkConfiguration _configuration;
+        private readonly GetApiCommand _getCommand;
+        private readonly PostApiCommand _postCommand;
+        // Instantiate additional command classes for other HTTP methods as needed
 
         public SdkClient(SdkConfiguration configuration)
         {
             _configuration = configuration;
-            _httpClient = new HttpClient();
+            _getCommand = new GetApiCommand(configuration);
+            _postCommand = new PostApiCommand(configuration);
+            // Instantiate additional command classes for other HTTP methods as needed
         }
 
         public async Task<string> GetApiResponseAsync(string endpoint)
         {
-            // Build the API request, add authentication headers or other necessary headers
-            var request = new HttpRequestMessage(HttpMethod.Get, endpoint);
-            request.Headers.Add("Authorization", _configuration.ApiKey);
-            request.Headers.Add("JwtToken", _configuration.JwtToken); // Add JwtToken header
+            return await _getCommand.ExecuteAsync(endpoint, null);
+        }
 
-            // Send the API request
-            var response = await _httpClient.SendAsync(request);
+        public async Task<string> PostApiResponseAsync(string endpoint, HttpContent content)
+        {
+            return await _postCommand.ExecuteAsync(endpoint, content);
+        }
 
-            // Process the API response
-            if (response.IsSuccessStatusCode)
-            {
-                var responseData = await response.Content.ReadAsStringAsync();
-                return responseData;
-            }
-            else
-            {
-                // Handle error response, throw exception or return null/empty response
-                throw new ApiException("Error occurred while making API request.");
-            }
+        // Add additional methods for other HTTP methods using the respective command classes
+
+        public void Dispose()
+        {
+            _getCommand.Dispose();
+            _postCommand.Dispose();
+            // Dispose of additional command instances as needed
         }
     }
-
 }

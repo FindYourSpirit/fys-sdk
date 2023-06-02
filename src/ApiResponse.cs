@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FYS_SDK.src
 {
-    internal class ApiResponse
+    public class ApiResponse
     {
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FYS_SDK.src
+﻿namespace FYS_SDK.src
 {
     public class SdkConfiguration
     {
@@ -12,13 +6,15 @@ namespace FYS_SDK.src
         public string JwtToken { get; set; }
         public string ClientID { get; set; }
         public EnvironmentType Environment { get; set; }  // New property to specify the environment
+        public string Version { get; set; }  // New property to specify the version
 
-        public SdkConfiguration(string apiKey, EnvironmentType environment, string jwtToken, string clientID)
+        public SdkConfiguration(string apiKey, EnvironmentType environment, string jwtToken, string clientID, string version)
         {
             ApiKey = apiKey;
             Environment = environment;
             JwtToken = jwtToken;
             ClientID = clientID;
+            Version = version;
         }
 
         public string GetBaseUrl()
@@ -26,9 +22,9 @@ namespace FYS_SDK.src
             switch (Environment)
             {
                 case EnvironmentType.Live:
-                    return "https://api.live.fysapp.co";
+                    return $"https://api.live.fysapp.co/{Version}";
                 case EnvironmentType.Test:
-                    return "https://api.test.fysapp.co";
+                    return $"https://api.test.fysapp.co/{Version}";
                 default:
                     throw new ArgumentException("Invalid environment specified.");
             }
@@ -40,6 +36,5 @@ namespace FYS_SDK.src
         Live,
         Test
     }
-
 
 }
