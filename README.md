@@ -1,1 +1,1 @@
-# fys-sdk
+# FYS SDK for APIs
