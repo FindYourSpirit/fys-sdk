@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="src\" />
-    <Folder Include="tools\" />
+    <Folder Include="examples\" />
     <Folder Include="tests\" />
   </ItemGroup>
 
