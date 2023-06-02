@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace FYS_SDK.src
 {
-    internal class SdkConfiguration
+    public class SdkConfiguration
     {
+        public string ApiKey { get; set; }
+        public string BaseUrl { get; set; }
+
+        public SdkConfiguration(string apiKey, string baseUrl)
+        {
+            ApiKey = apiKey;
+            BaseUrl = baseUrl;
+        }
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace FYS_SDK.src
 {
-    internal class ApiException
+    public class ApiException : Exception
     {
+        public ApiException(string message) : base(message)
+        {
+        }
     }
 }
