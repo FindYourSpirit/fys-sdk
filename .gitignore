@@ -1,5 +1,23 @@
-﻿bin/
+﻿# Visual Studio build folders
+bin/
 obj/
+
+# Visual Studio project properties
 properties/
-vs/
-/.vs
+
+# Visual Studio files and folders
+.vs/
+
+# NuGet packages folder
+packages/
+
+# User-specific files
+*.user
+*.suo
+*.cache
+*.bak
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Rr]elease/

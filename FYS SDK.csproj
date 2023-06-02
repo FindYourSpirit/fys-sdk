@@ -9,7 +9,10 @@
 
   <ItemGroup>
     <Folder Include="examples\" />
-    <Folder Include="tests\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MSTest.TestFramework" Version="3.0.4" />
   </ItemGroup>
 
 </Project>

@@ -38,7 +38,7 @@ To get started with the FYS SDK, follow these steps:
     else
     {
         // Handle the empty or error response
-}
+    }
 
 ## Contributing
 Contributions to the FYS SDK are welcome! If you find any issues, have feature requests, or want to contribute improvements, please submit them via GitHub issues or create a pull request.
