@@ -20,6 +20,7 @@ namespace FYS_SDK.src
             // Build the API request, add authentication headers or other necessary headers
             var request = new HttpRequestMessage(HttpMethod.Get, endpoint);
             request.Headers.Add("Authorization", _configuration.ApiKey);
+            request.Headers.Add("JwtToken", _configuration.JwtToken); // Add JwtToken header
 
             // Send the API request
             var response = await _httpClient.SendAsync(request);
@@ -37,4 +38,5 @@ namespace FYS_SDK.src
             }
         }
     }
+
 }
