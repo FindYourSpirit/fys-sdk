@@ -40,6 +40,23 @@ To get started with the FYS SDK, follow these steps:
         // Handle the empty or error response
     }
 
+## Testing
+
+The FYS SDK includes a set of unit tests to ensure the correctness and reliability of the library. These tests are written using MSTest, a popular testing framework in the .NET ecosystem.
+
+To run the tests:
+
+1. Open the solution in Visual Studio.
+2. Build the solution to restore dependencies and compile the project.
+3. Open the Test Explorer window (`Test > Windows > Test Explorer`) in Visual Studio.
+4. Click on the "Run All" button in the Test Explorer window to execute all the tests.
+
+You can also run the tests from the command line using the `dotnet test` command:
+
+    
+    dotnet test
+
+
 ## Contributing
 Contributions to the FYS SDK are welcome! If you find any issues, have feature requests, or want to contribute improvements, please submit them via GitHub issues or create a pull request.
 

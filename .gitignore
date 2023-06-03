@@ -21,3 +21,25 @@ packages/
 # Build results
 [Dd]ebug/
 [Rr]elease/
+
+# Test results
+[Tt]est[Rr]esult*/
+
+# Build artifacts
+[Bb]uild/
+
+# Visual Studio code files
+.vscode/
+
+# Resharper cache
+_ReSharper*/
+
+# Editor-specific files
+*.swp
+*~
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
